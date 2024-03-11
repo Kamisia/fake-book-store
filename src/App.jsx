@@ -27,6 +27,13 @@ function App() {
         <div key={book.id}>
           <h2>{book.volumeInfo.title}</h2>
           <p>{book.volumeInfo.authors.join(", ")}</p>
+          {book.volumeInfo.imageLinks &&
+            book.volumeInfo.imageLinks.thumbnail && (
+              <img
+                src={book.volumeInfo.imageLinks.thumbnail}
+                alt="Book Thumbnail"
+              />
+            )}
         </div>
       ))}
     </div>
