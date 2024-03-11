@@ -1,12 +1,12 @@
 import Header from "../components/Header";
-import Landing from "./Landing";
-const HomePage = () => {
+import { Outlet } from "react-router-dom";
+const HomeLayout = () => {
   return (
     <div>
       <Header />
-      <Landing />
+      <Outlet />
     </div>
   );
 };
 
-export default HomePage;
+export default HomeLayout;

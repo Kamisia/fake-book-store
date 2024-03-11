@@ -1,8 +1,12 @@
+import Navbar from "./Navbar";
+
 const Header = () => {
   return (
     <div className="header">
       <h1>FakeBookStore</h1>
-      <nav className="nav-container">{/*Navbar.jsx */}</nav>
+      <div className="nav-container">
+        <Navbar />
+      </div>
       {/*Szybkie wyszukiwanie */}
     </div>
   );
