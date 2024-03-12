@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import BookDetail from "./BookDetail";
 const BooksList = () => {
   const fetchBooks = async () => {
     const response = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes?q=harry+potter"
+      "https://www.googleapis.com/books/v1/volumes?q=flower&orderBy=relevance"
     );
 
     return response.data;
@@ -21,12 +22,21 @@ const BooksList = () => {
   }
 
   return (
-    <div>
+    <div className="container">
+      {data.items.map((book) => (
+        <BookDetail book={book} />
+      ))}
+    </div>
+    /* <div>
       <h1>Fake Book Store</h1>
       {data.items.map((book) => (
         <div key={book.id}>
           <h2>{book.volumeInfo.title}</h2>
-          <p>{book.volumeInfo.authors.join(", ")}</p>
+
+          {book.volumeInfo.authors && (
+            <p>{book.volumeInfo.authors.join(", ")}</p>
+          )}
+
           {book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.thumbnail && (
               <img
@@ -36,7 +46,7 @@ const BooksList = () => {
             )}
         </div>
       ))}
-    </div>
+            </div>*/
   );
 };
 

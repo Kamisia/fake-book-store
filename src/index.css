@@ -31,7 +31,7 @@
 }
 html {
   font-size: 100%;
-  background-color: var(--withe-color);
+  background-color: var(--lighter-main-color);
   height: 100%;
 }
 
@@ -47,6 +47,7 @@ html {
   color: var(--withe-color);
   font-weight: 300;
   font-size: 3rem;
+  padding-bottom: 1.2rem;
 }
 .menu-content {
   display: flex;
@@ -87,4 +88,58 @@ html {
   border: none;
   background-color: var(--withe-color);
   cursor: pointer;
+}
+/*Book-container*/
+.container {
+  border: 2px solid yellow;
+  padding: 1rem;
+}
+.single-book {
+  border: 1px solid red;
+  display: flex;
+  width: 100%;
+  background-color: var(--withe-color);
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-2);
+}
+.image-container {
+  width: 25%;
+  padding: 0.5rem;
+  text-align: center;
+}
+.image-container img {
+  box-shadow: var(--shadow-2);
+}
+.content-container {
+  padding: 0.5rem;
+  border: 2px solid green;
+  width: 60%;
+  text-align: start;
+}
+.button-container {
+  padding: 0.5rem;
+  width: 15%;
+  text-align: center;
+}
+.button-container button {
+  padding: 0.2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+  font-size: 1.2rem;
+  background-color: var(--detail-color);
+  border: none;
+  color: var(--black-color);
+  transition: var(--transition);
+}
+.button-container button:hover {
+  border: var(--darker-main-color) 1px solid;
+  color: var(--darker-main-color);
+  background-color: transparent;
+}
+.content-container h2 {
+  font-weight: 400;
+  color: var(--black-color);
+  margin-bottom: 20px;
 }
