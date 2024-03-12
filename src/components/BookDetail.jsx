@@ -14,11 +14,19 @@ const BookDetail = ({ book }) => {
       <div className="content-container">
         <h2>{book.volumeInfo.title}</h2>
 
-        {book.volumeInfo.authors && <p>{book.volumeInfo.authors.join(", ")}</p>}
+        {book.volumeInfo.authors && (
+          <p> {book.volumeInfo.authors.join(", ")}</p>
+        )}
+        {book.volumeInfo.publisher && (
+          <p> Publisher: {book.volumeInfo.publisher}</p>
+        )}
+        {book.volumeInfo.publishedDate && (
+          <p> Date of publication: {book.volumeInfo.publishedDate}</p>
+        )}
 
-        <p>{book.volumeInfo.description}</p>
-        <p>{book.volumeInfo.publisher}</p>
-        <p>{book.volumeInfo.publishedDate}</p>
+        {book.volumeInfo.description && (
+          <p> Description: {book.volumeInfo.description}</p>
+        )}
       </div>
       <div className="button-container">
         <button>

@@ -42,6 +42,7 @@ html {
   background-image: linear-gradient(315deg, #ff9f00 0%, #e75480 74%);
   width: 100%;
   padding: 1rem;
+  box-shadow: var(--shadow-2);
 }
 .header h1 {
   color: var(--withe-color);
@@ -91,13 +92,13 @@ html {
 }
 /*Book-container*/
 .container {
-  border: 2px solid yellow;
   padding: 1rem;
 }
 .single-book {
-  border: 1px solid red;
+  margin-right: auto;
+  margin-left: auto;
   display: flex;
-  width: 100%;
+  max-width: 900px;
   background-color: var(--withe-color);
   margin-bottom: 20px;
   box-shadow: var(--shadow-2);
@@ -112,7 +113,7 @@ html {
 }
 .content-container {
   padding: 0.5rem;
-  border: 2px solid green;
+
   width: 60%;
   text-align: start;
 }
@@ -142,4 +143,13 @@ html {
   font-weight: 400;
   color: var(--black-color);
   margin-bottom: 20px;
+}
+.content-container p {
+  font-weight: 300;
+  padding-top: 0.4rem;
+  color: var(--dark-grey-color);
+}
+.content-container p:first-of-type {
+  font-style: italic;
+  color: var(--black-color);
 }
