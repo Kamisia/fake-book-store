@@ -2,11 +2,12 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import BookDetail from "../components/BookDetail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
 const Search = () => {
-  const [query, setQuery] = useState("flower");
+  const [query, setQuery] = useState("");
   const [queryValue, setQueryValue] = useState("");
+  const [searched, setSearched] = useState(false);
   const fetchBooks = async (query) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&maxResults=20`
@@ -20,13 +21,20 @@ const Search = () => {
   };
   const handleSearch = () => {
     setQuery(queryValue);
-    refetch();
+    setSearched(true);
   };
+
   const { data, isError, isLoading, refetch } = useQuery({
     queryKey: ["books", query],
     queryFn: () => fetchBooks(query),
+    enabled: false,
   });
-
+  useEffect(() => {
+    if (searched) {
+      refetch();
+      setSearched(false);
+    }
+  }, [query, searched]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -42,9 +50,9 @@ const Search = () => {
         handleSearch={handleSearch}
       />
 
-      {data.items.map((book) => (
-        <BookDetail book={book} />
-      ))}
+      {data &&
+        data.items &&
+        data.items.map((book) => <BookDetail book={book} />)}
     </div>
   );
 };
