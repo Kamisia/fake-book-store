@@ -1,19 +1,23 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import BookDetail from "./BookDetail";
+import { useState } from "react";
 const BooksList = () => {
-  const fetchBooks = async () => {
+  const [query, setQuery] = useState("flower");
+
+  const fetchBooks = async (query) => {
     const response = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes?q=flower&orderBy=relevance"
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&maxResults=20`
     );
 
     return response.data;
   };
 
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["books"],
-    queryFn: fetchBooks,
+    queryKey: ["books", query],
+    queryFn: () => fetchBooks(query),
   });
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -27,26 +31,6 @@ const BooksList = () => {
         <BookDetail book={book} />
       ))}
     </div>
-    /* <div>
-      <h1>Fake Book Store</h1>
-      {data.items.map((book) => (
-        <div key={book.id}>
-          <h2>{book.volumeInfo.title}</h2>
-
-          {book.volumeInfo.authors && (
-            <p>{book.volumeInfo.authors.join(", ")}</p>
-          )}
-
-          {book.volumeInfo.imageLinks &&
-            book.volumeInfo.imageLinks.thumbnail && (
-              <img
-                src={book.volumeInfo.imageLinks.thumbnail}
-                alt="Book Thumbnail"
-              />
-            )}
-        </div>
-      ))}
-            </div>*/
   );
 };
 

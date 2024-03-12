@@ -1,5 +1,11 @@
+import BooksList from "../components/BooksList";
+
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <div>
+      <BooksList />
+    </div>
+  );
 };
 
 export default Search;

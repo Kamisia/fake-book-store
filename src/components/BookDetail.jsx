@@ -15,7 +15,7 @@ const BookDetail = ({ book }) => {
         <h2>{book.volumeInfo.title}</h2>
 
         {book.volumeInfo.authors && (
-          <p> {book.volumeInfo.authors.join(", ")}</p>
+          <p> ~{book.volumeInfo.authors.join(", ")}</p>
         )}
         {book.volumeInfo.publisher && (
           <p> Publisher: {book.volumeInfo.publisher}</p>
