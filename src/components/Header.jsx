@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import QuickSearch from "./QuickSearch";
+//import QuickSearch from "./QuickSearch";
 
 const Header = () => {
   return (
@@ -10,7 +10,7 @@ const Header = () => {
           <Navbar />
         </div>
 
-        <QuickSearch />
+        {/* <QuickSearch />*/}
       </div>
     </div>
   );

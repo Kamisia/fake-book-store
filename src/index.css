@@ -153,3 +153,12 @@ html {
   font-style: italic;
   color: var(--black-color);
 }
+.search-form {
+  background-color: var(--dark-grey-color);
+  padding: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-2);
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
