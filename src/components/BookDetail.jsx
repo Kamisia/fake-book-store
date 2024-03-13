@@ -3,7 +3,7 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 const BookDetail = ({ book }) => {
   return (
     <div className="single-book" key={book.id}>
-      <div className="image-container">
+      <div className="image-container-book">
         {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
           <img
             src={book.volumeInfo.imageLinks.thumbnail}

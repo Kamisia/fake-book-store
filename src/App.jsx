@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomeLayout, Cart, Landing, Search } from "./pages";
+import SearchForm from "./components/SearchForm";
 const router = createBrowserRouter([
   {
     path: "/",
