@@ -111,17 +111,18 @@ html {
   margin-bottom: 20px;
   box-shadow: var(--shadow-2);
 }
-.image-container-book {
+.image-container-book,
+.single-item img {
   width: 25%;
   padding: 0.5rem;
   text-align: center;
 }
-.image-container-book img {
+.image-container-book img,
+.single-item img {
   box-shadow: var(--shadow-2);
 }
 .content-container {
   padding: 0.5rem;
-
   width: 60%;
   text-align: start;
 }
@@ -147,17 +148,20 @@ html {
   color: var(--darker-main-color);
   background-color: transparent;
 }
-.content-container h2 {
+.content-container h2,
+.single-item h1 {
   font-weight: 400;
   color: var(--black-color);
   margin-bottom: 20px;
 }
-.content-container p {
+.content-container p,
+.single-item p {
   font-weight: 300;
   padding-top: 0.4rem;
   color: var(--dark-grey-color);
 }
-.content-container p:first-of-type {
+.content-container p:first-of-type,
+.single-item p {
   font-style: italic;
   color: var(--black-color);
 }
@@ -172,7 +176,8 @@ html {
 }
 /*Home*/
 
-.hero-container {
+.hero-container,
+.cart-container {
   width: 100%;
   justify-content: center;
   text-align: center;
@@ -212,4 +217,27 @@ html {
   .hero-content {
     width: 45%;
   }
+}
+/*CART*/
+
+.cart-container {
+  background-color: var(--detail-color);
+  width: 80%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow);
+}
+.items-container {
+  background-color: var(--withe-color);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 2rem;
+}
+.single-item {
+  border: 2px solid green;
+  text-align: left;
 }
