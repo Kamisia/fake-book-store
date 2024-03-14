@@ -1,6 +1,22 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectItems, addItem } from "../reducers/cartSlicer";
 const BookDetail = ({ book }) => {
+  const dispatch = useDispatch();
+  const items = useSelector(selectItems);
+
+  const handleAddItem = () => {
+    const newItem = {
+      id: book.id,
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      image: book.volumeInfo.imageLinks
+        ? book.volumeInfo.imageLinks.thumbnail
+        : "",
+    };
+    dispatch(addItem(newItem));
+    console.log("Updated Cart Items:", items);
+  };
   return (
     <div className="single-book" key={book.id}>
       <div className="image-container-book">
@@ -29,7 +45,7 @@ const BookDetail = ({ book }) => {
         )}
       </div>
       <div className="button-container">
-        <button>
+        <button onClick={handleAddItem}>
           <MdOutlineAddShoppingCart />
         </button>
         {/*Jeśli jest już produkt dodany do koszyka możliwosc jego usunięcia i zwiekszania/zmniejszania ilości bez wchodzenia do koszyka */}
