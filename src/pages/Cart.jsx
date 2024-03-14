@@ -26,7 +26,7 @@ const Cart = () => {
             <div className="single-item" key={item.id}>
               <h1>{item.title}</h1>
               {item.authors && <p> ~{item.authors.join(", ")}</p>}
-
+              <img src={item.image} />
               <button onClick={() => handleDelete(item.id)}>delete</button>
             </div>
           ))}

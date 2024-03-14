@@ -1,6 +1,7 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems, addItem } from "../reducers/cartSlicer";
+import { BookImage } from "../assets/Book.png";
 const BookDetail = ({ book }) => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
@@ -12,7 +13,7 @@ const BookDetail = ({ book }) => {
       authors: book.volumeInfo.authors,
       image: book.volumeInfo.imageLinks
         ? book.volumeInfo.imageLinks.thumbnail
-        : "",
+        : `${BookImage}`,
     };
     dispatch(addItem(newItem));
     console.log("Updated Cart Items:", items);
