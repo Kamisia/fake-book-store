@@ -121,6 +121,9 @@ html {
 .single-item img {
   box-shadow: var(--shadow-2);
 }
+.image-cart {
+  width: 80px;
+}
 .content-container {
   padding: 0.5rem;
   width: 60%;

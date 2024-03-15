@@ -6,7 +6,7 @@ const SearchForm = ({ handleSearch, handleInputChange, queryValue }) => {
           type="text"
           value={queryValue}
           onChange={handleInputChange}
-          placeholder="Search for books..."
+          placeholder="Enter title..."
         ></input>
 
         <button type="submit" onClick={handleSearch}>
