@@ -8,10 +8,20 @@ const SearchForm = ({ handleSearch, handleInputChange, queryValue }) => {
           onChange={handleInputChange}
           placeholder="Enter title..."
         ></input>
-
-        <button type="submit" onClick={handleSearch}>
-          Search
-        </button>
+        {queryValue !== "" ? (
+          <button type="submit" onClick={handleSearch}>
+            Search
+          </button>
+        ) : (
+          <button
+            style={{ backgroundColor: "gray", cursor: "auto", opacity: "0.5" }}
+            type="submit"
+            disabled
+            onClick={handleSearch}
+          >
+            Search
+          </button>
+        )}
       </div>
     </div>
   );

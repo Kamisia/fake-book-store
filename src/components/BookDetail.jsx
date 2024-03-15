@@ -1,10 +1,14 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { selectItems, addItem } from "../reducers/cartSlicer";
+import { BsCartCheck } from "react-icons/bs";
 
+import { selectItems, addItem } from "../reducers/cartSlicer";
+import { useState } from "react";
 const BookDetail = ({ book }) => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
+
+  const [isAdded, setIsAdded] = useState();
 
   const handleAddItem = () => {
     const newItem = {
@@ -18,8 +22,9 @@ const BookDetail = ({ book }) => {
       currency: book.saleInfo.listPrice.currencyCode,
     };
     dispatch(addItem(newItem));
-    console.log("Updated Cart Items:", items);
+    setIsAdded(true);
   };
+
   if (book.saleInfo.saleability === "FOR_SALE") {
     return (
       <div className="single-book" key={book.id}>
@@ -55,9 +60,18 @@ const BookDetail = ({ book }) => {
             {book.saleInfo.listPrice.amount}{" "}
             {book.saleInfo.listPrice.currencyCode}
           </p>
-          <button onClick={handleAddItem}>
-            <MdOutlineAddShoppingCart />
-          </button>
+
+          {isAdded ? (
+            <>
+              <button disabled className="clicked">
+                <BsCartCheck />
+              </button>
+            </>
+          ) : (
+            <button className="none-clicked" onClick={handleAddItem}>
+              <MdOutlineAddShoppingCart />
+            </button>
+          )}
         </div>
       </div>
     );

@@ -146,10 +146,17 @@ html {
   color: var(--black-color);
   transition: var(--transition);
 }
-.button-container button:hover {
+.button-container .none-clicked:hover {
   border: var(--darker-main-color) 1px solid;
   color: var(--darker-main-color);
   background-color: transparent;
+}
+.button-container .clicked {
+  color: var(--grey-color);
+  opacity: 0.5;
+  cursor: auto;
+  background-color: transparent;
+  border: none;
 }
 .content-container h2,
 .single-item h1 {
