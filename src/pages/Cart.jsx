@@ -4,6 +4,11 @@ import {
   deleteItem,
   deleteAllItems,
 } from "../reducers/cartSlicer";
+import { CiTrash } from "react-icons/ci";
+import { FaPlus } from "react-icons/fa6";
+
+import { FaMinus } from "react-icons/fa6";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
@@ -54,23 +59,31 @@ const Cart = () => {
                 <h1>{item.title}</h1>
                 {item.authors && <p> ~{item.authors.join(", ")}</p>}
               </div>
-              <div className="button-container">
-                <p>
+              <div className="button-container cart">
+                <p className="price">
                   {" "}
                   {item.price} {item.currency}
                 </p>
-                <div className="quantity">
-                  <button>+</button>
-                  <p>
-                    <span>0</span>
-                  </p>
-                  <button>-</button>
+                <div className="button-cart">
+                  <div className="quantity">
+                    <button>
+                      <FaPlus />
+                    </button>
+                    <p className="number">1</p>
+                    <button>
+                      <FaMinus />
+                    </button>
+                  </div>
+                  <button onClick={() => handleDelete(item.id)}>
+                    <CiTrash />
+                  </button>
                 </div>
-                <button onClick={() => handleDelete(item.id)}>delete</button>
               </div>
             </div>
           ))}
-        <button onClick={handleDeleteAll}>Delete All</button>
+        <button className="delete-all" onClick={handleDeleteAll}>
+          Clear Cart
+        </button>
         <div className="cart-stats">
           <h3>Total Price : {calculateTotalPrice()} PLN</h3>
           <button> Buy</button>

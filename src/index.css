@@ -3,6 +3,7 @@
 
   --main-color: #e75480;
   --lighter-main-color: #ef779f;
+  --lighter-main-color-rgba: rgba(239, 119, 159, 0.3);
   --darker-main-color: #d52d57;
   --detail-color: #ff9f00;
   --lighter-detail-color: #f6c449;
@@ -247,7 +248,102 @@ html {
   margin-bottom: 20px;
   padding: 2rem;
 }
-.single-item {
-  border: 2px solid green;
+
+.cart {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.price {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.button-cart {
+  display: flex;
+  flex-direction: row;
+}
+.quantity {
+  display: flex;
+  flex-direction: row;
+}
+.number {
+  width: 25px;
+  height: 25px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding-top: 0.2rem;
+}
+.button-cart button {
+  color: var(--withe-color);
+  padding-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  width: 25px;
+  height: 25px;
+  margin: 2px;
+  transition: var(--transition);
+  background-color: var(--darker-main-color);
+}
+.button-cart button:hover {
+  background-color: transparent;
+  color: var(--darker-main-color);
+}
+.quantity button {
+  background-color: var(--lighter-main-color-rgba);
+  font-size: 0.7rem;
+  color: var(--dark-grey-color);
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+  transition: var(--transition);
+}
+
+.quantity button:hover {
+  background-color: transparent;
+  color: var(--lighter-main-color);
+}
+
+.delete-all {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 0;
+  margin-left: auto;
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--darker-main-color);
+  color: var(--withe-color);
+  text-transform: uppercase;
+}
+.delete-all:hover {
+  background-color: transparent;
+  color: var(--darker-main-color);
+  border: 1px solid var(--darker-main-color);
+  transition: var(--transition);
+}
+.cart-stats {
+  margin-top: 20px;
+}
+.cart-stats h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0;
+  text-align: right;
+  color: var(--black-color);
+  margin: 0;
   text-align: left;
+}
+.cart-stats button {
+  padding: 0.5rem;
+  background-color: var(--lighter-main-color);
+  color: var(--withe-color);
+  border: none;
+  margin-right: 5px;
+  margin-top: 20px;
+  transition: var(--transition);
+}
+.cart-stats button:hover {
+  color: var(--black-color);
+  background-color: transparent;
+  border: 1px solid var(--black-color);
 }
