@@ -20,6 +20,7 @@ const BookDetail = ({ book }) => {
         : "src/assets/Book.png",
       price: book.saleInfo.listPrice.amount,
       currency: book.saleInfo.listPrice.currencyCode,
+      quantity: 1,
     };
     dispatch(addItem(newItem));
     setIsAdded(true);

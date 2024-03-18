@@ -3,7 +3,9 @@ import {
   selectItems,
   deleteItem,
   deleteAllItems,
+  updateItemQuantity,
 } from "../reducers/cartSlicer";
+
 import { CiTrash } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
 
@@ -19,22 +21,28 @@ const Cart = () => {
   const handleDeleteAll = () => {
     dispatch(deleteAllItems());
   };
-  const calculateTotalPrice = () => {
-    const totalPrice = items.reduce((total, item) => {
-      console.log(item.price);
+  const handleIncreaseQuantity = (itemId) => {
+    const itemToUpdate = items.find((item) => item.id === itemId);
+    if (itemToUpdate) {
+      const newQuantity = itemToUpdate.quantity + 1;
+      dispatch(updateItemQuantity({ id: itemId, quantity: newQuantity }));
+    }
+  };
 
-      if (!isNaN(item.price)) {
-        return total + item.price;
-      } else if (typeof item.price === "string") {
-        const price = parseFloat(item.price.replace(",", ""));
-        console.log(item.price);
-        return total + price;
-      } else {
-        console.log(total);
-        return total;
-      }
-    }, 0);
-    return totalPrice.toFixed(2);
+  const handleDecreaseQuantity = (itemId) => {
+    const itemToUpdate = items.find((item) => item.id === itemId);
+    if (itemToUpdate && itemToUpdate.quantity > 1) {
+      const newQuantity = itemToUpdate.quantity - 1;
+      dispatch(updateItemQuantity({ id: itemId, quantity: newQuantity }));
+    }
+  };
+  const calculateTotalPrice = () => {
+    return items
+      .reduce((total, item) => {
+        const price = parseFloat(item.price);
+        return total + price * item.quantity;
+      }, 0)
+      .toFixed(2);
   };
 
   if (items.length == 0) {
@@ -66,12 +74,13 @@ const Cart = () => {
                 </p>
                 <div className="button-cart">
                   <div className="quantity">
-                    <button>
-                      <FaPlus />
-                    </button>
-                    <p className="number">1</p>
-                    <button>
+                    <button onClick={() => handleDecreaseQuantity(item.id)}>
                       <FaMinus />
+                    </button>
+                    <p className="number">{item.quantity}</p>
+
+                    <button onClick={() => handleIncreaseQuantity(item.id)}>
+                      <FaPlus />
                     </button>
                   </div>
                   <button onClick={() => handleDelete(item.id)}>
