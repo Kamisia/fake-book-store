@@ -69,7 +69,6 @@ html {
   color: var(--withe-color);
 }
 .nav-link span {
-  background-color: var(--darker-main-color);
   position: absolute;
   top: 90px;
   margin: 5px;
