@@ -63,9 +63,18 @@ html {
   margin-right: 4rem;
 
   transition: var(--transition);
+  padding: 1rem;
 }
 .nav-link:hover {
   color: var(--withe-color);
+}
+.nav-link span {
+  background-color: var(--darker-main-color);
+  position: absolute;
+  top: 90px;
+  margin: 5px;
+  padding: 3px;
+  font-size: x-small;
 }
 .logo img {
   width: 200px;

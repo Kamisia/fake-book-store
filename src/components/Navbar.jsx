@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectItemCount } from "../reducers/cartSlicer";
 const Navbar = () => {
+  const itemCount = useSelector(selectItemCount);
   return (
     <nav className="nav-content">
       <div className="nav-links">
@@ -11,7 +14,7 @@ const Navbar = () => {
           Search
         </NavLink>
         <NavLink to="/cart" className="nav-link">
-          Cart
+          Cart {itemCount > 0 && <span>{itemCount}</span>}
         </NavLink>
       </div>
     </nav>
