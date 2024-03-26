@@ -128,7 +128,21 @@ html {
 .content-container {
   padding: 0.5rem;
   width: 60%;
+  height: 300px;
   text-align: start;
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.content-container::-webkit-scrollbar {
+  width: 5px;
+}
+.content-container::-webkit-scrollbar-track {
+  background: var(--light-grey-color);
+}
+.content-container::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5px;
 }
 .button-container {
   padding: 0.5rem;
@@ -231,25 +245,29 @@ html {
 }
 /*CART*/
 
-.cart-container {
+.cart-container .container {
   background-color: var(--detail-color);
-  width: 80%;
+  width: 100%;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: var(--shadow);
 }
-.items-container {
+.cart-container .container .single-book {
   background-color: var(--withe-color);
-  width: 80%;
+  width: 95%;
+  height: 180px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 2rem;
-}
 
-.cart {
+  padding: 2rem;
+  overflow: hidden;
+}
+.cart-container .container .single-book .content-container {
+  overflow: hidden;
+}
+.cart-container .container .single-book .cart {
   justify-content: center;
   align-items: center;
   display: flex;

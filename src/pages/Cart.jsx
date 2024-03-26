@@ -5,13 +5,16 @@ import {
   deleteAllItems,
   updateItemQuantity,
 } from "../reducers/cartSlicer";
-
+import { useQuery } from "@tanstack/react-query";
 import { CiTrash } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
 
 import { FaMinus } from "react-icons/fa6";
 
 const Cart = () => {
+  const { isLoading, isError } = useQuery({
+    enabled: false,
+  });
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
 
@@ -97,8 +100,6 @@ const Cart = () => {
           <h3>Total Price : {calculateTotalPrice()} PLN</h3>
           <button> Buy</button>
           <button> Cancel</button>
-          {/*Obecnie oba te przyciski nic nie robią.
-           Przyszłościowo można im podpiąć odpowiednie funkcjonalności */}
         </div>
       </div>
     </div>

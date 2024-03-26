@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 const queryClient = new QueryClient();
 const store = configureStore({
   reducer: {
-    items: cartSlice.reducer,
+    cart: cartSlice.reducer,
   },
 });
 createRoot(document.getElementById("root")).render(

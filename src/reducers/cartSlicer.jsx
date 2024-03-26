@@ -1,31 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
-  name: "items",
-  initialState: [],
+  name: "cart",
+  initialState: {
+    items: [],
+    searchResults: [],
+  },
+
   reducers: {
     setItems: (state, action) => {
-      return action.payload;
+      state.items = action.payload;
     },
     deleteItem: (state, action) => {
       const itemId = action.payload;
-      console.log("ho");
-      return state.filter((item) => item.id !== itemId);
+
+      state.items = state.items.filter((item) => item.id !== itemId);
     },
-    deleteAllItems: (state, action) => {
-      return [];
+    deleteAllItems: (state) => {
+      state.items = [];
     },
     addItem: (state, action) => {
       const newItem = action.payload;
 
-      return [...state, newItem];
+      state.items.push(newItem);
     },
     updateItemQuantity: (state, action) => {
       const { id, quantity } = action.payload;
-      const itemToUpdate = state.find((item) => item.id === id);
+      const itemToUpdate = state.items.find((item) => item.id === id);
       if (itemToUpdate) {
         itemToUpdate.quantity = quantity;
       }
+    },
+    addSearchResults: (state, action) => {
+      state.searchResults = action.payload;
+      console.log(state.searchResults);
     },
   },
 });
@@ -36,6 +44,8 @@ export const {
   deleteItem,
   deleteAllItems,
   updateItemQuantity,
+  addSearchResults,
 } = cartSlice.actions;
-export const selectItems = (state) => state.items;
+export const selectItems = (state) => state.cart.items;
+export const selectSearchResults = (state) => state.cart.searchResults;
 export default cartSlice.reducer;

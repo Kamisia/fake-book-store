@@ -1,40 +1,44 @@
-//import BooksList from "../components/BooksList";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addSearchResults, selectSearchResults } from "../reducers/cartSlicer";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import BookDetail from "../components/BookDetail";
-import { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
+
 const Search = () => {
-  const [query, setQuery] = useState("");
+  const dispatch = useDispatch();
+  const searchResults = useSelector(selectSearchResults);
   const [queryValue, setQueryValue] = useState("");
   const [searched, setSearched] = useState(false);
+
   const fetchBooks = async (query) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&maxResults=20`
     );
-
-    return response.data;
+    return response.data.items;
   };
+
   const handleInputChange = (event) => {
     const inputQuery = event.target.value;
     setQueryValue(inputQuery);
   };
+
   const handleSearch = () => {
-    setQuery(queryValue);
     setSearched(true);
   };
 
-  const { data, isError, isLoading, refetch } = useQuery({
-    queryKey: ["books", query],
-    queryFn: () => fetchBooks(query),
-    enabled: false,
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["books", queryValue],
+    queryFn: () => fetchBooks(queryValue),
+    enabled: searched,
   });
+
   useEffect(() => {
-    if (searched) {
-      refetch();
-      setSearched(false);
+    if (data) {
+      dispatch(addSearchResults(data));
     }
-  }, [query, searched]);
+  }, [data, dispatch]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -49,10 +53,8 @@ const Search = () => {
         queryValue={queryValue}
         handleSearch={handleSearch}
       />
-
-      {data &&
-        data.items &&
-        data.items.map((book) => <BookDetail book={book} />)}
+      {searchResults &&
+        searchResults.map((book) => <BookDetail book={book} key={book.id} />)}
     </div>
   );
 };
