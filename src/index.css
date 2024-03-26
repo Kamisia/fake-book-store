@@ -32,7 +32,7 @@
 }
 html {
   font-size: 100%;
-  background-color: var(--lighter-main-color);
+  background-color: var(--withe-color);
   height: 100%;
 }
 
@@ -211,11 +211,13 @@ html {
 
 .hero-container,
 .cart-container {
-  width: 100%;
+  width: 90%;
+  background-color: #fdc5d6;
+  padding: 5px;
   justify-content: center;
   text-align: center;
   display: flex;
-  margin-top: 50px;
+  margin: auto;
 }
 .hero-content {
   text-align: left;
@@ -224,7 +226,7 @@ html {
 }
 .hero-content h1 {
   font-weight: 300;
-  color: var(--withe-color);
+  color: var(--darker-main-color);
   margin-bottom: 1rem;
 }
 .hero-content p {
@@ -254,7 +256,6 @@ html {
 /*CART*/
 
 .cart-container .container {
-  background-color: var(--detail-color);
   width: 100%;
   max-width: 900px;
   margin-left: auto;

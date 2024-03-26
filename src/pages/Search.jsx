@@ -22,10 +22,13 @@ const Search = () => {
   const handleInputChange = (event) => {
     const inputQuery = event.target.value;
     setQueryValue(inputQuery);
+    setSearched(false);
   };
 
   const handleSearch = () => {
-    setSearched(true);
+    if (queryValue.trim() !== "") {
+      setSearched(true);
+    }
   };
 
   const { isLoading, isError, data } = useQuery({
