@@ -1,7 +1,7 @@
 const SearchForm = ({ handleSearch, handleInputChange, queryValue }) => {
   return (
     <div className="search-form">
-      <div className="quick-search" onSubmit={handleSearch}>
+      <div className="search" onSubmit={handleSearch}>
         <input
           type="text"
           value={queryValue}

@@ -50,14 +50,16 @@ const Search = () => {
   }
 
   return (
-    <div className="container">
-      <SearchForm
-        handleInputChange={handleInputChange}
-        queryValue={queryValue}
-        handleSearch={handleSearch}
-      />
-      {searchResults &&
-        searchResults.map((book) => <BookDetail book={book} key={book.id} />)}
+    <div className="search-container">
+      <div className="search-content">
+        <SearchForm
+          handleInputChange={handleInputChange}
+          queryValue={queryValue}
+          handleSearch={handleSearch}
+        />
+        {searchResults &&
+          searchResults.map((book) => <BookDetail book={book} key={book.id} />)}
+      </div>
     </div>
   );
 };

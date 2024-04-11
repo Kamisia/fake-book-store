@@ -3,18 +3,18 @@ import { HomeLayout, Cart, Landing, Search } from "./pages";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: import.meta.env.BASE_URL,
     element: <HomeLayout />,
     children: [
       { index: true, element: <Landing /> },
 
       {
-        path: "/search",
+        path: `${import.meta.env.BASE_URL}/search`,
         element: <Search />,
       },
 
       {
-        path: "/cart",
+        path: `${import.meta.env.BASE_URL}/cart`,
         element: <Cart />,
       },
     ],

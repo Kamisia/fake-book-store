@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import imgUrl from "/src/images/logo.png";
 //import QuickSearch from "./QuickSearch";
 
 const Header = () => {
@@ -6,12 +7,10 @@ const Header = () => {
     <div className="header">
       <h1>FakeBookStore</h1>
       <div className="logo">
-        <img src="src/assets/logo.png" />
+        <img src={imgUrl} />
       </div>
-      <div className="menu-content">
-        <div className="nav-container">
-          <Navbar />
-        </div>
+      <div className="nav-container">
+        <Navbar />
       </div>
     </div>
   );

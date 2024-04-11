@@ -2,6 +2,7 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { CiTrash } from "react-icons/ci";
 import { FaPlus, FaMinus } from "react-icons/fa6";
+import defaultBookImageUrl from "/src/images/Book.png";
 import {
   selectItems,
   addItem,
@@ -31,7 +32,7 @@ const BookDetail = ({ book }) => {
       authors: book.volumeInfo.authors,
       image: book.volumeInfo.imageLinks
         ? book.volumeInfo.imageLinks.thumbnail
-        : "src/assets/Book.png",
+        : defaultBookImageUrl,
       price: book.saleInfo.listPrice.amount,
       currency: book.saleInfo.listPrice.currencyCode,
       quantity: 1,
@@ -104,18 +105,20 @@ const BookDetail = ({ book }) => {
                   <FaMinus />
                 </button>
                 <p className="number">{quantity}</p>
-                <button onClick={handleIncreaseQuantity}>
+                <button id="plus" onClick={handleIncreaseQuantity}>
                   <FaPlus />
                 </button>
+                <button className="trash" onClick={handleDelete}>
+                  <CiTrash />
+                </button>
               </div>
-              <button onClick={handleDelete}>
-                <CiTrash />
-              </button>
             </div>
           ) : (
-            <button className="none-clicked" onClick={handleAddItem}>
-              <MdOutlineAddShoppingCart />
-            </button>
+            <div className="button-cart">
+              <button className="none-clicked" onClick={handleAddItem}>
+                <MdOutlineAddShoppingCart />
+              </button>
+            </div>
           )}
         </div>
       </div>

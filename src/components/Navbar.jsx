@@ -6,14 +6,14 @@ const Navbar = () => {
   return (
     <nav className="nav-content">
       <div className="nav-links">
-        <NavLink to="/" className="nav-link">
+        <NavLink to={`${import.meta.env.BASE_URL}/`} className="nav-link">
           Home
         </NavLink>
 
-        <NavLink to="/search" className="nav-link">
+        <NavLink to={`${import.meta.env.BASE_URL}/search`} className="nav-link">
           Search
         </NavLink>
-        <NavLink to="/cart" className="nav-link">
+        <NavLink to={`${import.meta.env.BASE_URL}/cart`} className="nav-link">
           Cart {itemCount > 0 && <span>{itemCount}</span>}
         </NavLink>
       </div>

@@ -82,13 +82,19 @@ const Cart = () => {
                     </button>
                     <p className="number">{item.quantity}</p>
 
-                    <button onClick={() => handleIncreaseQuantity(item.id)}>
+                    <button
+                      id="plus"
+                      onClick={() => handleIncreaseQuantity(item.id)}
+                    >
                       <FaPlus />
                     </button>
+                    <button
+                      className="trash"
+                      onClick={() => handleDelete(item.id)}
+                    >
+                      <CiTrash />
+                    </button>
                   </div>
-                  <button onClick={() => handleDelete(item.id)}>
-                    <CiTrash />
-                  </button>
                 </div>
               </div>
             </div>
