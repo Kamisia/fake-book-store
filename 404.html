@@ -14,6 +14,7 @@
       if (window.location.pathname !== "/fake-book-store/") {
         document.title = "Loading...";
         const url = window.location.pathname;
+
         fetch(url)
           .then((response) => {
             if (!response.ok) {
@@ -30,7 +31,7 @@
               "There has been a problem with your fetch operation: ",
               error
             );
-            window.location.href = "/fake-book-store/";
+            window.location.href = `https://kamisia.github.io${window.location.pathname}`;
           });
       }
     </script>
