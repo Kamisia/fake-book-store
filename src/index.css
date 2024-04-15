@@ -158,6 +158,12 @@ html {
 .search button:hover {
   background-color: var(--darker-main-color);
 }
+.search-form button.search-button:disabled,
+.search-form button .search-button[disabled] {
+  background-color: "gray";
+  cursor: auto;
+  opacity: "0.5";
+}
 .search input {
   border: none;
   background-color: var(--withe-color);

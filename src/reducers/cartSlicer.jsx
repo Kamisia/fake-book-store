@@ -33,7 +33,6 @@ export const cartSlice = createSlice({
     },
     addSearchResults: (state, action) => {
       state.searchResults = action.payload;
-      console.log(state.searchResults);
     },
   },
 });

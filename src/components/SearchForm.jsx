@@ -1,29 +1,43 @@
-const SearchForm = ({ handleSearch, handleInputChange, queryValue }) => {
+import { useState } from "react";
+import SearchResult from "./SearchResult";
+const SearchForm = () => {
+  const [searched, setSearched] = useState(false);
+  const [queryValue, setQueryValue] = useState("");
+
+  const handleSearch = () => {
+    if (queryValue.trim() !== "") {
+      setSearched(true);
+    }
+  };
+
   return (
-    <div className="search-form">
-      <div className="search" onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={queryValue}
-          onChange={handleInputChange}
-          placeholder="Enter title..."
-        ></input>
-        {queryValue !== "" ? (
-          <button type="submit" onClick={handleSearch}>
-            Search
-          </button>
-        ) : (
+    <>
+      <div className="search-form">
+        <form
+          className="search"
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleSearch();
+          }}
+        >
+          <input
+            type="text"
+            value={queryValue}
+            onChange={(event) => setQueryValue(event.target.value)}
+            placeholder="Enter title..."
+          ></input>
           <button
-            style={{ backgroundColor: "gray", cursor: "auto", opacity: "0.5" }}
+            className="search-button"
             type="submit"
-            disabled
+            disabled={!queryValue}
             onClick={handleSearch}
           >
             Search
           </button>
-        )}
+        </form>
       </div>
-    </div>
+      <SearchResult searched={searched} queryValue={queryValue} />
+    </>
   );
 };
 
