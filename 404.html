@@ -3,36 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loading...</title>
+
+    <meta http-equiv="refresh" content="0;url=/fake-book-store/" />
+    <title>Redirecting...</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      if (
-        window.location.pathname !==
-        "https://kamisia.github.io/fake-book-store/"
-      ) {
-        document.title = "Loading...";
-        const url = window.location.pathname;
-        fetch(url)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.text();
-          })
-          .then((html) => {
-            document.getElementById("root").innerHTML = html;
-            document.title = "Fake Book Store";
-          })
-          .catch((error) => {
-            console.error(
-              "There has been a problem with your fetch operation:",
-              error
-            );
-            window.location.href = "/";
-          });
-      }
-    </script>
+    Redirecting...
   </body>
 </html>
