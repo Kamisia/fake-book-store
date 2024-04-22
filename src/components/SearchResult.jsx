@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { addSearchResults, selectSearchResults } from "../reducers/cartSlicer";
-const SearchResult = ({ searched, queryValue }) => {
+const SearchResult = ({ searched, setSearched, queryValue }) => {
   const dispatch = useDispatch();
   const searchResults = useSelector(selectSearchResults);
 
@@ -13,6 +13,7 @@ const SearchResult = ({ searched, queryValue }) => {
       `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&maxResults=20`
     );
     return response.data.items;
+    setSearched(false);
   };
 
   const { isLoading, isError, data } = useQuery({

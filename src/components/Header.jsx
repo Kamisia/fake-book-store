@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
 import imgUrl from "/src/images/logo.png";
-//import QuickSearch from "./QuickSearch";
 
 const Header = () => {
   return (

@@ -36,7 +36,11 @@ const SearchForm = () => {
           </button>
         </form>
       </div>
-      <SearchResult searched={searched} queryValue={queryValue} />
+      <SearchResult
+        searched={searched}
+        queryValue={queryValue}
+        setSearched={setSearched}
+      />
     </>
   );
 };
