@@ -9,12 +9,12 @@ const router = createBrowserRouter([
       { index: true, element: <Landing /> },
 
       {
-        path: `${import.meta.env.BASE_URL}/search`,
+        path: `${import.meta.env.BASE_URL}search`,
         element: <Search />,
       },
 
       {
-        path: `${import.meta.env.BASE_URL}/cart`,
+        path: `${import.meta.env.BASE_URL}cart`,
         element: <Cart />,
       },
     ],
