@@ -157,7 +157,12 @@ html {
 /*search*/
 .search-container {
   justify-content: center;
+  padding: 0;
 }
+.search-content {
+  width: 100%;
+}
+
 .search button {
   background-color: var(--lighter-main-color);
   color: var(--withe-color);
@@ -165,6 +170,8 @@ html {
   transition: var(--transition);
   cursor: pointer;
   margin-right: 0;
+  width: 20%;
+  max-width: 50px;
 }
 .search button:hover {
   background-color: var(--darker-main-color);
@@ -179,7 +186,8 @@ html {
   border: none;
   background-color: var(--withe-color);
   cursor: pointer;
-  min-width: 400px;
+  width: 70%;
+  max-width: 500px;
   margin-left: 0;
 }
 /*Book-container*/

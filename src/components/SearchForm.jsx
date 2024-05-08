@@ -1,5 +1,7 @@
 import { useState } from "react";
 import SearchResult from "./SearchResult";
+import { CiSearch } from "react-icons/ci";
+
 const SearchForm = () => {
   const [searched, setSearched] = useState(false);
   const [queryValue, setQueryValue] = useState("");
@@ -32,7 +34,7 @@ const SearchForm = () => {
             disabled={!queryValue}
             onClick={handleSearch}
           >
-            Search
+            <CiSearch />
           </button>
         </form>
       </div>
