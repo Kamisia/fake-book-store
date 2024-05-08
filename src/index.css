@@ -63,8 +63,7 @@ html {
 .nav-link {
   text-decoration: none;
   color: var(--light-grey-color);
-  margin-right: 4rem;
-
+  margin-right: 1.2rem;
   transition: var(--transition);
   padding: 1rem;
 }
