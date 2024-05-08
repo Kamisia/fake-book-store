@@ -247,8 +247,13 @@ html {
   flex-direction: column;
   margin: auto;
   margin-top: 1rem;
+  min-width: 100%;
+  justify-content: center;
 }
-
+.button-cart .quantity {
+  margin-left: auto;
+  margin-right: auto;
+}
 .button-container .button-cart .none-clicked {
   padding: 0.2rem;
   cursor: pointer;
