@@ -29,6 +29,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato";
+  overflow-x: hidden;
 }
 html {
   font-size: 100%;
@@ -54,10 +55,11 @@ html {
 /*Navbar*/
 .nav-container {
   display: flex;
-
   justify-content: center;
 }
-
+.nav-links {
+  overflow: hidden;
+}
 .nav-link {
   text-decoration: none;
   color: var(--light-grey-color);
@@ -75,6 +77,11 @@ html {
   margin: 5px;
   padding: 3px;
   font-size: x-small;
+  background-color: #d52d57;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
 
 .search input,
@@ -148,6 +155,9 @@ html {
 }
 
 /*search*/
+.search-container {
+  justify-content: center;
+}
 .search button {
   background-color: var(--lighter-main-color);
   color: var(--withe-color);
@@ -314,6 +324,12 @@ html {
   font-weight: 300;
   padding-top: 0.2rem;
 }
+.button-cart {
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+}
 .button-cart button {
   color: var(--withe-color);
   padding-bottom: 0.2rem;
@@ -323,6 +339,7 @@ html {
   margin: 2px;
   transition: var(--transition);
   background-color: var(--darker-main-color);
+  overflow: hidden;
 }
 .button-cart button:hover {
   background-color: transparent;
