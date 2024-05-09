@@ -35,7 +35,7 @@ const SearchResult = ({ searched, setSearched, queryValue }) => {
   }
 
   return (
-    <div>
+    <div className="result-container">
       {searchResults &&
         searchResults.map((book) => <BookDetail book={book} key={book.id} />)}
     </div>

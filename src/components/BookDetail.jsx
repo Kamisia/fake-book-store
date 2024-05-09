@@ -76,49 +76,49 @@ const BookDetail = ({ book }) => {
             )}
         </div>
         <div className="content-container">
-          <h2>{book.volumeInfo.title}</h2>
+          <div className="info">
+            <h2>{book.volumeInfo.title}</h2>
 
-          {book.volumeInfo.authors && (
-            <p> ~{book.volumeInfo.authors.join(", ")}</p>
-          )}
-          {book.volumeInfo.publisher && (
+            {book.volumeInfo.authors && (
+              <p className="author"> ~{book.volumeInfo.authors.join(", ")}</p>
+            )}
+            {/*book.volumeInfo.publisher && (
             <p> Publisher: {book.volumeInfo.publisher}</p>
           )}
           {book.volumeInfo.publishedDate && (
             <p> Date of publication: {book.volumeInfo.publishedDate}</p>
-          )}
+          )*/}
+            <span>Read more</span>
+          </div>
 
-          {book.volumeInfo.description && (
+          <div className="price">
+            <p>
+              {book.saleInfo.listPrice.amount}{" "}
+              {book.saleInfo.listPrice.currencyCode}
+            </p>
+          </div>
+          {/*book.volumeInfo.description && (
             <p> Description: {book.volumeInfo.description}</p>
-          )}
+          )*/}
         </div>
         <div className="button-container">
-          <p>
-            {book.saleInfo.listPrice.amount}{" "}
-            {book.saleInfo.listPrice.currencyCode}
-          </p>
-
           {isAdded ? (
-            <div className="button-cart">
-              <div className="quantity">
-                <button onClick={handleDecreaseQuantity}>
-                  <FaMinus />
-                </button>
-                <p className="number">{quantity}</p>
-                <button id="plus" onClick={handleIncreaseQuantity}>
-                  <FaPlus />
-                </button>
-                <button className="trash" onClick={handleDelete}>
-                  <CiTrash />
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="button-cart">
-              <button className="none-clicked" onClick={handleAddItem}>
-                <MdOutlineAddShoppingCart />
+            <div className="quantity">
+              <button onClick={handleDecreaseQuantity}>
+                <FaMinus />
+              </button>
+              <p className="number">{quantity}</p>
+              <button id="plus" onClick={handleIncreaseQuantity}>
+                <FaPlus />
+              </button>
+              <button className="trash" onClick={handleDelete}>
+                <CiTrash />
               </button>
             </div>
+          ) : (
+            <button className="none-clicked" onClick={handleAddItem}>
+              <MdOutlineAddShoppingCart />
+            </button>
           )}
         </div>
       </div>
