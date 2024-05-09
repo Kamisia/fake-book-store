@@ -63,7 +63,7 @@ html {
 .nav-link {
   text-decoration: none;
   color: var(--light-grey-color);
-  margin-right: 1.2rem;
+  margin-right: 1rem;
   transition: var(--transition);
   padding: 1rem;
 }
@@ -73,8 +73,8 @@ html {
 .nav-link span {
   position: absolute;
   top: 90px;
-  margin: 5px;
-  padding: 3px;
+  margin: 3px;
+  padding: 4px;
   font-size: x-small;
   background-color: #d52d57;
   border-radius: 50%;
