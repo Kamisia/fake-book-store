@@ -176,6 +176,15 @@ html {
 .search button:hover {
   background-color: var(--darker-main-color);
 }
+.search-form {
+  background-color: var(--main-color);
+  padding: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-2);
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .search-form button.search-button:disabled,
 .search-form button .search-button[disabled] {
   background-color: "gray";
@@ -190,6 +199,7 @@ html {
   max-width: 500px;
   margin-left: 0;
 }
+
 /*Book-container in resultSearch*/
 .result-container {
   display: flex;
@@ -420,15 +430,7 @@ html {
   font-style: italic;
   color: var(--black-color);
 }*/
-.search-form {
-  background-color: var(--main-color);
-  padding: 2rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--shadow-2);
-  max-width: 900px;
-  margin-right: auto;
-  margin-left: auto;
-}
+
 /*CART*/
 /*
 .cart-container .container .single-book {
