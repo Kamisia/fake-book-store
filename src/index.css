@@ -95,8 +95,7 @@ html {
 }
 /*Hero*/
 .hero-container,
-.search-container,
-.cart-container {
+.search-container {
   width: 90%;
   max-width: 900px;
   background-color: var(--withe-color);
@@ -198,6 +197,7 @@ html {
   width: 70%;
   max-width: 500px;
   margin-left: 0;
+  outline: none;
 }
 
 /*Book-container in resultSearch*/
@@ -206,70 +206,191 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0, 5rem;
-  justify-content: space-between;
-  margin: auto;
+
+  justify-content: center;
 }
-.single-book {
+.result-container .single-book {
   width: 200px;
   height: 350px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   border: 0.5px solid var(--grey-color);
   color: var(--black-color);
-  margin-bottom: 0.3rem;
 }
-.single-book .image-container-book {
+.result-container .single-book .image-container-book {
   height: 165px;
   margin: auto;
   overflow: hidden;
   cursor: pointer;
 }
-.single-book .image-container-book img {
+.result-container .single-book .image-container-book img {
   height: 100%;
 }
-.single-book .content-container {
+.result-container .single-book .content-container {
   height: 130px;
   text-align: left;
   padding-left: 0.5rem;
   flex-direction: column;
   display: flex;
 }
-.single-book .content-container .info {
+.result-container .single-book .content-container .info {
   margin-top: auto;
   margin-bottom: auto;
 }
-.single-book .content-container h2,
-.single-book .content-container .price {
+.result-container .single-book .content-container h2,
+.result-container .single-book .content-container .price {
   font-size: 0.9rem;
 
   font-weight: 500;
 }
-.single-book .content-container span {
+.result-container .single-book .content-container span {
   color: var(--dark-grey-color);
   cursor: pointer;
   font-size: 0.7rem;
   transition: var(--transition);
 }
-.single-book .content-container span:hover {
+.result-container .single-book .content-container span:hover {
   color: var(--darker-main-color);
 }
-.content-container .author {
+.result-container .single-book .content-container .author {
   color: var(--dark-grey-color);
   font-style: italic;
   font-size: 0.6rem;
 }
-.content-container .price {
+.result-container .single-book .content-container .price {
   margin-top: auto;
   margin-bottom: 0.5rem;
 }
 
+/*CART*/
+.cart {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cart-container {
+  background-color: var(--withe-color);
+  width: 90%;
+  max-width: 900px;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+.cart-container .single-book {
+  border-bottom: var(--light-grey-color) 1px solid;
+  margin-bottom: 0.5rem;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.cart-container .single-book .description {
+  display: flex;
+  justify-content: space-between;
+  text-align: start;
+
+  width: 200%;
+}
+.cart-container .price {
+  margin: auto;
+  font-size: 1rem;
+  width: 100%;
+  padding-bottom: 0.3rem;
+}
+.cart-container .button-container .quantity {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cart-container .single-book .description .image-container-book {
+  display: none;
+}
+
+.cart-container .single-book .description .content-container {
+  width: 60%;
+  padding-left: 0.5rem;
+}
+.cart-container .single-book .description .content-container h1 {
+  font-size: 0.8rem;
+}
+.cart-container .single-book .description .content-container p {
+  color: var(--dark-grey-color);
+  font-style: italic;
+  font-size: 0.6rem;
+}
+@media (min-width: 768px) {
+  .cart-container .single-book .description .image-container-book {
+    margin-top: auto;
+    display: flex;
+    margin-bottom: auto;
+  }
+  .cart-container .single-book .description .image-container-book img {
+    width: 110px;
+  }
+}
+.cart-container .delete-all {
+  padding: 0.3rem;
+  display: flex;
+  margin-right: 0;
+  margin-left: auto;
+  margin-bottom: 0.5rem;
+  background: var(--error-color);
+  border: var(--error-color) solid 1px;
+  color: var(--withe-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.cart-container .delete-all:hover {
+  background-color: transparent;
+  color: var(--error-color);
+}
+.cart-stats {
+  text-align: right;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.cart-stats h3 {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.cart-stats .button-stats {
+  margin-right: 0;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.cart-stats .button-stats button {
+  width: 60px;
+  margin-left: 0.3rem;
+  padding: 0.3rem;
+  cursor: pointer;
+  background: var(--error-color);
+  border: var(--error-color) solid 1px;
+  color: var(--withe-color);
+  transition: var(--transition);
+}
+.cart-stats .button-stats button:hover {
+  background: transparent;
+  color: var(--error-color);
+}
+
+.cart-stats .button-stats .buy-btn {
+  background-color: var(--success-color);
+  border: var(--success-color) 1px solid;
+}
+.cart-stats .button-stats .buy-btn:hover {
+  color: var(--success-color);
+}
+
+/*Buttons Quantity*/
 .single-book .button-container {
   height: 40px;
   margin: auto;
-
   width: 100%;
 }
 .button-container .none-clicked {
@@ -283,7 +404,7 @@ html {
   transition: var(--transition);
   color: var(--dark-grey-color);
 }
-.button-container .none-clicked:hover {
+.single-book .button-container .none-clicked:hover {
   border: var(--success-color) 1px solid;
   color: var(--success-color);
   background-color: transparent;
@@ -291,7 +412,6 @@ html {
 .quantity {
   display: flex;
   flex-direction: row;
-
   justify-content: center;
 }
 .quantity button {
@@ -328,238 +448,8 @@ html {
 .number {
   width: 25px;
   height: 25px;
-  font-size: 1.1rem;
-  font-weight: 300;
-  padding-top: 0.2rem;
-}
-
-/*.single-book {
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  max-width: 900px;
-  background-color: var(--lighter-main-color-rgba);
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-2);
-}
-.image-container-book {
-  width: 25%;
-  padding: 0.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-.image-container-book img {
-  box-shadow: var(--shadow-2);
-  margin: auto;
-}
-.image-cart {
-  width: 80px;
-}
-.content-container {
-  padding: 0.5rem;
-  width: 60%;
-  height: 300px;
-  text-align: start;
-  flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-.content-container::-webkit-scrollbar {
-  width: 5px;
-}
-.content-container::-webkit-scrollbar-track {
-  background: var(--light-grey-color);
-}
-.content-container::-webkit-scrollbar-thumb {
-  background: var(--main-color);
-  border-radius: 5px;
-}
-.button-container {
-  padding: 0.5rem;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  justify-content: space-between;
-}
-.button-container .button-cart {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  margin-top: 1rem;
-  min-width: 100%;
-  justify-content: center;
-}
-.button-cart .quantity {
-  margin-left: auto;
-  margin-right: auto;
-}
-.button-container .button-cart .none-clicked {
-  padding: 0.2rem;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  padding-top: 5px;
-  font-size: 1.2rem;
-  background-color: var(--lighter-main-color-rgba);
-  border: none;
-  color: var(--black-color);
-  transition: var(--transition);
-}
-.button-container .button-cart .none-clicked:hover {
-  border: var(--success-color) 1px solid;
-  color: var(--success-color);
-  background-color: transparent;
-}
-
-.content-container h2,
-.single-item h1 {
-  font-weight: 400;
-  color: var(--black-color);
-  margin-bottom: 20px;
-}
-.content-container p,
-.single-item p {
-  font-weight: 300;
-  padding-top: 0.4rem;
-  color: var(--dark-grey-color);
-}
-.content-container p:first-of-type,
-.single-item p {
-  font-style: italic;
-  color: var(--black-color);
-}*/
-
-/*CART*/
-/*
-.cart-container .container .single-book {
-  background-color: var(--lighter-main-color-rgba);
-  width: 100%;
-  height: 180px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  overflow: hidden;
-}
-.cart-container .container .single-book .content-container {
-  overflow: hidden;
-}
-.cart-container .container .single-book .cart,
-.search-container .single-book .button-cart {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-}
-
-.price {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.quantity {
-  display: flex;
-  flex-direction: row;
-}
-.number {
-  width: 25px;
-  height: 25px;
-  font-size: 1.1rem;
-  font-weight: 300;
-  padding-top: 0.2rem;
-}
-.button-cart {
-  width: 100%;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-}
-.button-cart button {
-  color: var(--withe-color);
-  padding-bottom: 0.2rem;
-  padding-top: 0.2rem;
-  width: 25px;
-  height: 25px;
-  margin: 2px;
-  transition: var(--transition);
-  background-color: var(--darker-main-color);
-  overflow: hidden;
-}
-.button-cart button:hover {
-  background-color: transparent;
-  color: var(--darker-main-color);
-}
-.quantity button {
-  background-color: var(--lighter-main-color-rgba);
-  font-size: 0.7rem;
-  color: var(--dark-grey-color);
-  padding-bottom: 0.4rem;
-  padding-top: 0.4rem;
-  transition: var(--transition);
-  border: none;
-}
-
-.quantity button:hover {
-  background-color: transparent;
-  color: var(--darker-main-color);
-}
-.quantity #plus:hover {
-  color: var(--success-color);
-}
-.quantity .trash {
-  background-color: var(--darker-main-color);
-  color: var(--withe-color);
   font-size: 1rem;
+  font-weight: 300;
+  padding-top: 0.2rem;
+  overflow: hidden;
 }
-.quantity .trash:hover {
-  background-color: transparent;
-  color: var(--darker-main-color);
-  border: var(--darker-main-color) solid 1px;
-}
-
-.delete-all {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-right: 0;
-  margin-left: auto;
-  padding: 0.5rem;
-  border: none;
-  background-color: var(--darker-main-color);
-  color: var(--withe-color);
-  text-transform: uppercase;
-}
-.delete-all:hover {
-  background-color: transparent;
-  color: var(--darker-main-color);
-  border: 1px solid var(--darker-main-color);
-  transition: var(--transition);
-}
-.cart-stats {
-  margin-top: 20px;
-}
-.cart-stats h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  padding: 0;
-  text-align: right;
-  color: var(--black-color);
-  margin: 0;
-  text-align: left;
-}
-.cart-stats button {
-  padding: 0.5rem;
-  background-color: var(--lighter-main-color);
-  color: var(--withe-color);
-  border: none;
-  margin-right: 5px;
-  margin-top: 20px;
-  transition: var(--transition);
-}
-.cart-stats button:hover {
-  color: var(--black-color);
-  background-color: transparent;
-  border: 1px solid var(--black-color);
-}
-*/
