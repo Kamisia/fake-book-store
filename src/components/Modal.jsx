@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../Context";
 import { IoMdClose } from "react-icons/io";
 
-const ModalMovieCard = () => {
+const Modal = () => {
   const { isOpenModal, closeModal, modalContent } = useGlobalContext();
   const { authors, description, title, amount, currencyCode, imageLinks } =
     modalContent;
@@ -43,4 +43,4 @@ const ModalMovieCard = () => {
   ) : null;
 };
 
-export default ModalMovieCard;
+export default Modal;
