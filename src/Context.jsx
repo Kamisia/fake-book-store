@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectItems,
@@ -26,6 +26,47 @@ export const AppProvider = ({ children }) => {
   const handleDeleteAllItems = () => {
     dispatch(deleteAllItems());
   };
+  //***MODAL***//
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    authors: "",
+    description: "",
+    title: "",
+    amount: "",
+    currencyCode: "",
+    imageLinks: "",
+  });
+  const openModal = (
+    authors,
+    description,
+    title,
+    amount,
+    currencyCode,
+    imageLinks
+  ) => {
+    setModalContent({
+      title: title,
+      description: description,
+      authors: authors,
+      amount: amount,
+      currencyCode: currencyCode,
+      imageLinks: imageLinks,
+    });
+    setIsOpenModal(true);
+  };
+  const closeModal = () => {
+    setIsOpenModal(false);
+    setModalContent({
+      authors: "",
+      description: "",
+      title: "",
+      amount: "",
+      currencyCode: "",
+      imageLinks: "",
+    });
+    console.log(modalContent);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -34,6 +75,10 @@ export const AppProvider = ({ children }) => {
         handleUpdateItemQuantity,
         handleDeleteItem,
         handleDeleteAllItems,
+        openModal,
+        closeModal,
+        modalContent,
+        isOpenModal,
       }}
     >
       {children}

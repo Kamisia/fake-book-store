@@ -1,4 +1,5 @@
 import BookDetail from "./BookDetail";
+import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useEffect } from "react";
@@ -38,6 +39,7 @@ const SearchResult = ({ searched, setSearched, queryValue }) => {
     <div className="result-container">
       {searchResults &&
         searchResults.map((book) => <BookDetail book={book} key={book.id} />)}
+      <Modal />
     </div>
   );
 };

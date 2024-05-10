@@ -15,6 +15,7 @@
   --light-grey-color: #d1d1d0;
   --success-color: #4cbb17;
   --error-color: #b81e40;
+  --black-color-opacity: rgba(4, 0, 6, 0.5);
 
   /*SHADOW*/
   --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -452,4 +453,121 @@ html {
   font-weight: 300;
   padding-top: 0.2rem;
   overflow: hidden;
+}
+/***MODAL***/
+.modal {
+  background-color: var(--black-color-opacity);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.modal .modal-container {
+  width: 50%;
+  height: 60%;
+  min-width: 330px;
+  margin: auto;
+  max-width: 600px;
+  box-shadow: var(--shadow);
+  background-color: var(--withe-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modal .modal-container .modal-content {
+}
+.modal .modal-container .btn {
+  margin-right: 0;
+  text-align: end;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  width: 100%;
+}
+.modal .modal-container .btn button {
+  padding: 0.2rem;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border: none;
+  color: var(--error-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.modal .modal-container .btn button:hover {
+  transform: rotate(90deg);
+}
+.modal .modal-container .modal-content .description-content {
+  font-size: 0.8rem;
+  text-align: start;
+  padding: 0.5rem;
+  overflow: hidden;
+
+  max-height: 80%;
+}
+.modal .modal-container .modal-content .description-content h1 {
+  font-size: 1rem;
+  color: var(--darker-main-color);
+}
+
+.modal .modal-container .modal-content .description-content .author {
+  font-style: italic;
+  color: var(--grey-color);
+  padding-left: 0.3rem;
+  margin-bottom: 1rem;
+}
+.modal .modal-container .modal-content .description-content div {
+  max-height: 60%;
+  overflow-y: auto;
+}
+.modal
+  .modal-container
+  .modal-content
+  .description-content
+  div::-webkit-scrollbar {
+  width: 5px;
+}
+.modal
+  .modal-container
+  .modal-content
+  .description-content
+  div::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal .modal-container .modal-content .price {
+  text-align: start;
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
+.modal-img {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .modal .modal-container .modal-content {
+    display: flex;
+    flex-direction: row;
+    max-height: 400px;
+    align-items: center;
+    padding: 0.5em;
+  }
+  .modal .modal-container .modal-img {
+    margin-left: 0;
+    margin-right: auto;
+    height: 220px;
+
+    min-width: 150px;
+    display: flex;
+
+    margin: auto;
+  }
+  .modal .modal-container .modal-content .description-content {
+    height: 270px;
+  }
 }
