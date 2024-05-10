@@ -18,7 +18,9 @@ const Modal = () => {
           <div
             className="modal-img"
             style={{
-              backgroundImage: imageLinks ? `url()` : `url(${img})`,
+              backgroundImage: imageLinks
+                ? `url(${imageLinks})`
+                : `url(${img})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
