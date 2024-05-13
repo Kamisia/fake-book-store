@@ -504,8 +504,7 @@ html {
   font-size: 0.8rem;
   text-align: start;
   padding: 0.5rem;
-  overflow: hidden;
-
+  overflow-y: scroll;
   max-height: 80%;
 }
 .modal .modal-container .modal-content .description-content h1 {
@@ -521,20 +520,14 @@ html {
 }
 .modal .modal-container .modal-content .description-content div {
   max-height: 60%;
-  overflow-y: auto;
 }
-.modal
-  .modal-container
-  .modal-content
-  .description-content
-  div::-webkit-scrollbar {
+.modal .modal-container .modal-content .description-content::-webkit-scrollbar {
   width: 5px;
 }
 .modal
   .modal-container
   .modal-content
-  .description-content
-  div::-webkit-scrollbar-thumb {
+  .description-content::-webkit-scrollbar-thumb {
   background: var(--main-color);
   cursor: pointer;
   border-radius: 5px;
@@ -569,5 +562,22 @@ html {
   }
   .modal .modal-container .modal-content .description-content {
     height: 270px;
+    overflow: hidden;
+  }
+  .modal
+    .modal-container
+    .modal-content
+    .description-content
+    div::-webkit-scrollbar {
+    width: 5px;
+  }
+  .modal
+    .modal-container
+    .modal-content
+    .description-content
+    div::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    cursor: pointer;
+    border-radius: 5px;
   }
 }
