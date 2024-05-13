@@ -521,13 +521,18 @@ html {
 .modal .modal-container .modal-content .description-content div {
   max-height: 60%;
 }
-.modal .modal-container .modal-content .description-content::-webkit-scrollbar {
+.modal
+  .modal-container
+  .modal-content
+  .description-content
+  .description-text::-webkit-scrollbar {
   width: 5px;
 }
 .modal
   .modal-container
   .modal-content
-  .description-content::-webkit-scrollbar-thumb {
+  .description-content
+  .description-text::-webkit-scrollbar-thumb {
   background: var(--main-color);
   cursor: pointer;
   border-radius: 5px;
@@ -568,14 +573,14 @@ html {
     .modal-container
     .modal-content
     .description-content
-    div::-webkit-scrollbar {
+    .description-text::-webkit-scrollbar {
     width: 5px;
   }
   .modal
     .modal-container
     .modal-content
     .description-content
-    div::-webkit-scrollbar-thumb {
+    .description-text::-webkit-scrollbar-thumb {
     background: var(--main-color);
     cursor: pointer;
     border-radius: 5px;
