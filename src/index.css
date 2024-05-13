@@ -354,6 +354,7 @@ html {
   text-align: right;
   padding: 0.5rem;
   margin-top: 1rem;
+  overflow: hidden;
 }
 .cart-stats h3 {
   font-size: 0.8rem;
@@ -374,6 +375,7 @@ html {
   border: var(--error-color) solid 1px;
   color: var(--withe-color);
   transition: var(--transition);
+  overflow: hidden;
 }
 .cart-stats .button-stats button:hover {
   background: transparent;

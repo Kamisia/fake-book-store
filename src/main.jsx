@@ -7,6 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./reducers/cartSlicer.jsx";
 import { Provider } from "react-redux";
 import { AppProvider } from "./Context.jsx";
+import { ToastContainer } from "react-toastify";
 const queryClient = new QueryClient();
 const store = configureStore({
   reducer: {
@@ -19,6 +20,18 @@ createRoot(document.getElementById("root")).render(
       <AppProvider>
         <QueryClientProvider client={queryClient}>
           <App />
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </QueryClientProvider>
       </AppProvider>
     </Provider>

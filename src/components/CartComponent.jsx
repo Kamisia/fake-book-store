@@ -1,7 +1,9 @@
 import { CiTrash } from "react-icons/ci";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useGlobalContext } from "../Context";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { NavLink } from "react-router-dom";
 const CartComponent = () => {
   const {
     items,
@@ -9,7 +11,30 @@ const CartComponent = () => {
     handleDeleteItem,
     handleDeleteAllItems,
   } = useGlobalContext();
-
+  const handleBuy = () => {
+    toast.success("You can't buy anything here. This is FakeBookStore", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const handleCancel = () => {
+    toast.error("You have canceled your order", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const calculateTotalPrice = () => {
     return items
       .reduce((total, item) => {
@@ -86,8 +111,13 @@ const CartComponent = () => {
           <div className="cart-stats">
             <h3>Total Price: {calculateTotalPrice()} PLN</h3>
             <div className="button-stats">
-              <button className="buy-btn">Buy</button>
-              <button>Cancel</button>
+              <button className="buy-btn" onClick={handleBuy}>
+                Buy
+              </button>
+
+              <NavLink to={`${import.meta.env.BASE_URL}`}>
+                <button onClick={handleCancel}>Cancel</button>
+              </NavLink>
             </div>
           </div>
         </>
