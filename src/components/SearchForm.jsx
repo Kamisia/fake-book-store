@@ -6,7 +6,8 @@ const SearchForm = () => {
   const [searched, setSearched] = useState(false);
   const [queryValue, setQueryValue] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    event.preventDefault();
     if (queryValue.trim() !== "") {
       setSearched(true);
     }
@@ -15,13 +16,7 @@ const SearchForm = () => {
   return (
     <>
       <div className="search-form">
-        <form
-          className="search"
-          onSubmit={(event) => {
-            event.preventDefault();
-            handleSearch();
-          }}
-        >
+        <form className="search" onSubmit={handleSearch}>
           <input
             type="text"
             value={queryValue}
@@ -32,7 +27,6 @@ const SearchForm = () => {
             className="search-button"
             type="submit"
             disabled={!queryValue}
-            onClick={handleSearch}
           >
             <CiSearch />
           </button>

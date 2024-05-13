@@ -1,11 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import {
   selectItems,
   addItem,
   updateItemQuantity,
   deleteItem,
   deleteAllItems,
+  addSearchResults,
 } from "./reducers/cartSlicer";
 const AppContext = createContext();
 export const AppProvider = ({ children }) => {
@@ -25,6 +27,14 @@ export const AppProvider = ({ children }) => {
 
   const handleDeleteAllItems = () => {
     dispatch(deleteAllItems());
+  };
+
+  //***Fetch data***/
+  const fetchBooks = async (query) => {
+    const response = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&maxResults=20`
+    );
+    dispatch(addSearchResults(response.data.items));
   };
   //***MODAL***//
 
@@ -79,6 +89,7 @@ export const AppProvider = ({ children }) => {
         closeModal,
         modalContent,
         isOpenModal,
+        fetchBooks,
       }}
     >
       {children}
