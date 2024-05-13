@@ -6,9 +6,7 @@ import { useGlobalContext } from "../Context";
 const ButtonsComponent = ({ book }) => {
   const { items, handleAddItem, handleUpdateItemQuantity, handleDeleteItem } =
     useGlobalContext();
-  if (!Array.isArray(items)) {
-    return null;
-  }
+
   const foundItem = items.find((item) => item.id === book.id);
   const isAdded = !!foundItem;
   const quantity = foundItem ? foundItem.quantity : 0;

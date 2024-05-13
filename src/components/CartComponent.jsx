@@ -21,7 +21,7 @@ const CartComponent = () => {
 
   return (
     <div className="cart-container">
-      {!Array.isArray(items) ? (
+      {items.length === 0 ? (
         <div className="empty-cart-message">
           <h3>Your Cart is empty</h3>
         </div>
