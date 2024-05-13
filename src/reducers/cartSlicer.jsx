@@ -37,9 +37,11 @@ export const cartSlice = createSlice({
     updateItemQuantity: (state, action) => {
       const { id, quantity } = action.payload;
       const itemToUpdate = state.items.find((item) => item.id === id);
-      if (itemToUpdate) {
-        itemToUpdate.quantity = quantity;
-        saveItemsToLocalStorage(state.items);
+      if (Array.isArray(state.cart.items) && itemToUpdate) {
+        if (itemToUpdate) {
+          itemToUpdate.quantity = quantity;
+          saveItemsToLocalStorage(state.items);
+        }
       }
     },
     addSearchResults: (state, action) => {
@@ -58,7 +60,11 @@ export const {
 } = cartSlice.actions;
 export const selectItems = (state) => state.cart.items;
 export const selectSearchResults = (state) => state.cart.searchResults;
-export const selectItemCount = (state) =>
-  state.cart.items.reduce((total, item) => total + item.quantity, 0);
-
+export const selectItemCount = (state) => {
+  if (Array.isArray(state.cart.items)) {
+    return state.cart.items.reduce((total, item) => total + item.quantity, 0);
+  } else {
+    return 0;
+  }
+};
 export default cartSlice.reducer;
