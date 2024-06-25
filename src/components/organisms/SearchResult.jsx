@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectSearchResults } from "../reducers/cartSlicer";
-import { useGlobalContext } from "../Context";
-import BookDetail from "./BookDetail";
-import Modal from "./Modal";
+import { selectSearchResults } from "../../reducers/cartSlicer";
+import { useGlobalContext } from "../../Context";
+import BookDetail from "../molecules/BookDetail";
+import Modal from "../organisms/Modal";
 
 const SearchResult = ({ searched, setSearched, queryValue }) => {
   const { fetchBooks } = useGlobalContext();

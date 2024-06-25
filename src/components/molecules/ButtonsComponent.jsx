@@ -1,7 +1,7 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { CiTrash } from "react-icons/ci";
-import { FaPlus, FaMinus } from "react-icons/fa6";
-import { useGlobalContext } from "../Context";
+import { FaPlus, FaMinus } from "react-icons/fa";
+import { useGlobalContext } from "../../Context";
 
 const ButtonsComponent = ({ book }) => {
   const { items, handleAddItem, handleUpdateItemQuantity, handleDeleteItem } =
@@ -14,13 +14,11 @@ const ButtonsComponent = ({ book }) => {
   const handleAddItemToCart = () => {
     const newItem = {
       id: book.id,
-      title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors,
-      image: book.volumeInfo.imageLinks
-        ? book.volumeInfo.imageLinks.thumbnail
-        : "defaultBookImageUrl",
-      price: book.saleInfo.listPrice?.amount || 0,
-      currency: book.saleInfo.listPrice?.currencyCode || "USD",
+      title: book.volumeInfo?.title || "Unknown title",
+      authors: book.volumeInfo?.authors || ["Unknown author"],
+      image: book.volumeInfo?.imageLinks?.thumbnail || "defaultBookImageUrl",
+      price: book.saleInfo?.listPrice?.amount || 0,
+      currency: book.saleInfo?.listPrice?.currencyCode || "USD",
       quantity: 1,
     };
     handleAddItem(newItem);

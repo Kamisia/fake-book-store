@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import SearchInput from "../molecules/SearchInput";
 import SearchResult from "./SearchResult";
-import { CiSearch } from "react-icons/ci";
 
 const SearchForm = () => {
   const [searched, setSearched] = useState(false);
@@ -16,21 +16,11 @@ const SearchForm = () => {
   return (
     <>
       <div className="search-form">
-        <form className="search" onSubmit={handleSearch}>
-          <input
-            type="text"
-            value={queryValue}
-            onChange={(event) => setQueryValue(event.target.value)}
-            placeholder="Enter title..."
-          ></input>
-          <button
-            className="search-button"
-            type="submit"
-            disabled={!queryValue}
-          >
-            <CiSearch />
-          </button>
-        </form>
+        <SearchInput
+          queryValue={queryValue}
+          setQueryValue={setQueryValue}
+          handleSearch={handleSearch}
+        />
       </div>
       <SearchResult
         searched={searched}

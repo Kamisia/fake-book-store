@@ -1,4 +1,5 @@
-import CartComponent from "../components/CartComponent";
+import React from "react";
+import CartComponent from "../components/organisms/CartComponent";
 
 const Cart = () => {
   return (

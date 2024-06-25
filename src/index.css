@@ -56,32 +56,36 @@ html {
 /*Navbar*/
 .nav-container {
   display: flex;
+
   justify-content: center;
 }
 .nav-links {
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }
 .nav-link {
   text-decoration: none;
   color: var(--light-grey-color);
-  margin-right: 1rem;
+
   transition: var(--transition);
   padding: 1rem;
+  position: relative;
 }
 .nav-link:hover {
   color: var(--withe-color);
 }
-.nav-link span {
-  position: absolute;
-  top: 90px;
-  margin: 3px;
-  padding: 4px;
+.nav-link .badge {
   font-size: x-small;
+  padding: 4px;
   background-color: #d52d57;
   border-radius: 50%;
   width: 20px;
   height: 20px;
   text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .search input,

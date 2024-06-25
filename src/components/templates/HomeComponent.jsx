@@ -1,4 +1,7 @@
-import imgBG from "/src/images/hero.svg";
+import React from "react";
+import Image from "../atoms/Image";
+import imgBG from "../../images/hero.svg";
+
 const HomeComponent = () => {
   return (
     <div className="hero-container">

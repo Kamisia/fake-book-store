@@ -1,4 +1,5 @@
-import SearchForm from "../components/SearchForm";
+import React from "react";
+import SearchForm from "../components/organisms/SearchForm";
 
 const Search = () => {
   return (

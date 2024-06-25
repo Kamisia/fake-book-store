@@ -1,9 +1,14 @@
+import React from "react";
 import { CiTrash } from "react-icons/ci";
 import { FaPlus, FaMinus } from "react-icons/fa6";
-import { useGlobalContext } from "../Context";
+import { useGlobalContext } from "../../Context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavLink } from "react-router-dom";
+import Button from "../atoms/Button";
+import Icon from "../atoms/Icon";
+import Image from "../atoms/Image";
+
 const CartComponent = () => {
   const {
     items,
@@ -11,6 +16,7 @@ const CartComponent = () => {
     handleDeleteItem,
     handleDeleteAllItems,
   } = useGlobalContext();
+
   const handleBuy = () => {
     toast.success("You can't buy anything here. This is FakeBookStore", {
       position: "top-center",
@@ -23,6 +29,7 @@ const CartComponent = () => {
       theme: "light",
     });
   };
+
   const handleCancel = () => {
     toast.error("You have canceled your order", {
       position: "top-center",
@@ -35,6 +42,7 @@ const CartComponent = () => {
       theme: "light",
     });
   };
+
   const calculateTotalPrice = () => {
     return items
       .reduce((total, item) => {
@@ -56,7 +64,7 @@ const CartComponent = () => {
             <div className="single-book" key={item.id}>
               <div className="description">
                 <div className="image-container-book">
-                  <img
+                  <Image
                     className="image-cart"
                     src={item.image}
                     alt={item.title}
@@ -70,32 +78,27 @@ const CartComponent = () => {
 
               <div className="button-container">
                 <div className="quantity">
-                  <button
-                    onClick={() => {
-                      const newQuantity = item.quantity - 1;
-                      if (newQuantity <= 0) {
-                        handleDeleteItem(item.id);
-                      } else {
-                        handleUpdateItemQuantity(item.id, newQuantity);
-                      }
-                    }}
+                  <Button
+                    onClick={() =>
+                      handleUpdateItemQuantity(item.id, item.quantity - 1)
+                    }
                   >
-                    <FaMinus />
-                  </button>
+                    <Icon IconComponent={FaMinus} />
+                  </Button>
                   <p className="number">{item.quantity}</p>
-                  <button
+                  <Button
                     onClick={() =>
                       handleUpdateItemQuantity(item.id, item.quantity + 1)
                     }
                   >
-                    <FaPlus />
-                  </button>
-                  <button
+                    <Icon IconComponent={FaPlus} />
+                  </Button>
+                  <Button
                     className="trash"
                     onClick={() => handleDeleteItem(item.id)}
                   >
-                    <CiTrash />
-                  </button>
+                    <Icon IconComponent={CiTrash} />
+                  </Button>
                 </div>
               </div>
               <div className="price">
@@ -105,18 +108,17 @@ const CartComponent = () => {
               </div>
             </div>
           ))}
-          <button className="delete-all" onClick={handleDeleteAllItems}>
+          <Button className="delete-all" onClick={handleDeleteAllItems}>
             Clear Cart
-          </button>
+          </Button>
           <div className="cart-stats">
             <h3>Total Price: {calculateTotalPrice()} PLN</h3>
             <div className="button-stats">
-              <button className="buy-btn" onClick={handleBuy}>
+              <Button className="buy-btn" onClick={handleBuy}>
                 Buy
-              </button>
-
+              </Button>
               <NavLink to={`${import.meta.env.BASE_URL}`}>
-                <button onClick={handleCancel}>Cancel</button>
+                <Button onClick={handleCancel}>Cancel</Button>
               </NavLink>
             </div>
           </div>
