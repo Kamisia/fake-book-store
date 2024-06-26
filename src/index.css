@@ -149,7 +149,7 @@ html {
     width: 200px;
     height: 200px;
     position: absolute;
-    top: 0;
+    top: -10px;
     right: 0;
   }
 
@@ -181,10 +181,8 @@ html {
   background-color: var(--darker-main-color);
 }
 .search-form {
-  background-color: var(--main-color);
+  background-color: var(--lighter-main-color-rgba);
   padding: 2rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--shadow-2);
   max-width: 900px;
   margin-right: auto;
   margin-left: auto;
@@ -217,7 +215,7 @@ html {
 .result-container .single-book {
   width: 200px;
   height: 350px;
-  margin: 0.2rem;
+  margin: 0.5rem;
   display: flex;
   flex-direction: column;
 
