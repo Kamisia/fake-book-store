@@ -6,7 +6,7 @@ import BookDetail from "../molecules/BookDetail";
 import Modal from "../organisms/Modal";
 
 const SearchResult = ({ searched, setSearched, queryValue }) => {
-  const { fetchBooks, modalContent } = useGlobalContext();
+  const { fetchBooks } = useGlobalContext();
   const searchResults = useSelector(selectSearchResults);
   const [selectedBook, setSelectedBook] = useState(null);
 

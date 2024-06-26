@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../organisms/Navbar";
-import Image from "../atoms/Image";
+
 import imgUrl from "../../images/logo.png";
 
 const Header = () => {

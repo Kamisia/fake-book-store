@@ -5,7 +5,7 @@ import Image from "../atoms/Image";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavLink } from "react-router-dom";
-import ButtonsComponent from "../molecules/ButtonsComponent"; // Adjust the path as needed
+import ButtonsComponent from "../molecules/ButtonsComponent";
 
 const CartComponent = () => {
   const { items, handleDeleteAllItems } = useGlobalContext();
