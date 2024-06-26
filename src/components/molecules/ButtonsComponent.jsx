@@ -1,7 +1,10 @@
+import React from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { CiTrash } from "react-icons/ci";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useGlobalContext } from "../../Context";
+import Button from "../atoms/Button";
+import Icon from "../atoms/Icon";
 
 const ButtonsComponent = ({ book }) => {
   const { items, handleAddItem, handleUpdateItemQuantity, handleDeleteItem } =
@@ -46,21 +49,21 @@ const ButtonsComponent = ({ book }) => {
     <div className="button-container">
       {isAdded ? (
         <div className="quantity">
-          <button onClick={handleDecreaseQuantity}>
-            <FaMinus />
-          </button>
+          <Button onClick={handleDecreaseQuantity} className="minus-button">
+            <Icon IconComponent={FaMinus} />
+          </Button>
           <p className="number">{quantity}</p>
-          <button id="plus" onClick={handleIncreaseQuantity}>
-            <FaPlus />
-          </button>
-          <button className="trash" onClick={handleDelete}>
-            <CiTrash />
-          </button>
+          <Button onClick={handleIncreaseQuantity} className="plus-button">
+            <Icon IconComponent={FaPlus} />
+          </Button>
+          <Button onClick={handleDelete} className="trash-button">
+            <Icon IconComponent={CiTrash} />
+          </Button>
         </div>
       ) : (
-        <button className="none-clicked" onClick={handleAddItemToCart}>
-          <MdOutlineAddShoppingCart />
-        </button>
+        <Button onClick={handleAddItemToCart} className="add-button">
+          <Icon IconComponent={MdOutlineAddShoppingCart} />
+        </Button>
       )}
     </div>
   );

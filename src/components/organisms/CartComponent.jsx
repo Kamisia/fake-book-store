@@ -1,21 +1,14 @@
 import React from "react";
-import { CiTrash } from "react-icons/ci";
-import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useGlobalContext } from "../../Context";
+import Button from "../atoms/Button";
+import Image from "../atoms/Image";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavLink } from "react-router-dom";
-import Button from "../atoms/Button";
-import Icon from "../atoms/Icon";
-import Image from "../atoms/Image";
+import ButtonsComponent from "../molecules/ButtonsComponent"; // Adjust the path as needed
 
 const CartComponent = () => {
-  const {
-    items,
-    handleUpdateItemQuantity,
-    handleDeleteItem,
-    handleDeleteAllItems,
-  } = useGlobalContext();
+  const { items, handleDeleteAllItems } = useGlobalContext();
 
   const handleBuy = () => {
     toast.success("You can't buy anything here. This is FakeBookStore", {
@@ -72,34 +65,16 @@ const CartComponent = () => {
                 </div>
                 <div className="content-container">
                   <h1>{item.title}</h1>
-                  {item.authors && <p> ~{item.authors.join(", ")}</p>}
+                  {item.authors && Array.isArray(item.authors) ? (
+                    <p>~{item.authors.join(", ")}</p>
+                  ) : (
+                    <p>~Unknown author</p>
+                  )}
                 </div>
               </div>
 
               <div className="button-container">
-                <div className="quantity">
-                  <Button
-                    onClick={() =>
-                      handleUpdateItemQuantity(item.id, item.quantity - 1)
-                    }
-                  >
-                    <Icon IconComponent={FaMinus} />
-                  </Button>
-                  <p className="number">{item.quantity}</p>
-                  <Button
-                    onClick={() =>
-                      handleUpdateItemQuantity(item.id, item.quantity + 1)
-                    }
-                  >
-                    <Icon IconComponent={FaPlus} />
-                  </Button>
-                  <Button
-                    className="trash"
-                    onClick={() => handleDeleteItem(item.id)}
-                  >
-                    <Icon IconComponent={CiTrash} />
-                  </Button>
-                </div>
+                <ButtonsComponent book={item} />
               </div>
               <div className="price">
                 <p>

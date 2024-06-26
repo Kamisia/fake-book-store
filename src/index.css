@@ -398,7 +398,8 @@ html {
   margin: auto;
   width: 100%;
 }
-.button-container .none-clicked {
+.button-container .none-clicked,
+.add-button {
   padding: 0.2rem;
   cursor: pointer;
   width: 100px;
@@ -409,7 +410,8 @@ html {
   transition: var(--transition);
   color: var(--dark-grey-color);
 }
-.single-book .button-container .none-clicked:hover {
+.single-book .button-container .none-clicked:hover,
+.add-button:hover {
   border: var(--success-color) 1px solid;
   color: var(--success-color);
   background-color: transparent;
@@ -436,15 +438,17 @@ html {
   background-color: transparent;
   color: var(--darker-main-color);
 }
-.quantity #plus:hover {
+.quantity .plus-button:hover {
   color: var(--success-color);
 }
-.quantity .trash {
+.quantity .trash-button,
+.trash {
   background-color: var(--darker-main-color);
   color: var(--withe-color);
   font-size: 1rem;
 }
-.quantity .trash:hover {
+.quantity .trash-button:hover,
+.trash:hover {
   background-color: transparent;
   color: var(--darker-main-color);
   border: var(--darker-main-color) solid 1px;
@@ -463,15 +467,21 @@ html {
   background-color: var(--black-color-opacity);
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
 }
 .modal .modal-container {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 50%;
-  height: 60%;
+  height: 70%;
   min-width: 330px;
   margin: auto;
   max-width: 600px;
@@ -482,12 +492,14 @@ html {
   overflow: hidden;
 }
 .modal .modal-container .modal-content {
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .modal .modal-container .btn {
   margin-right: 0;
   text-align: end;
   padding: 0.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
   width: 100%;
 }
@@ -504,84 +516,65 @@ html {
 .modal .modal-container .btn button:hover {
   transform: rotate(90deg);
 }
-.modal .modal-container .modal-content .description-content {
+
+.modal .modal-container .modal-content .dis,
+.modal .modal-container .modal-content .description {
   font-size: 0.8rem;
   text-align: start;
   padding: 0.5rem;
-  overflow-y: scroll;
-  max-height: 80%;
 }
-.modal .modal-container .modal-content .description-content h1 {
+.description-content h1 {
   font-size: 1rem;
   color: var(--darker-main-color);
 }
 
-.modal .modal-container .modal-content .description-content .author {
+.description-content .author {
   font-style: italic;
   color: var(--grey-color);
   padding-left: 0.3rem;
-  margin-bottom: 1rem;
 }
-.modal .modal-container .modal-content .description-content div {
-  max-height: 60%;
+.description {
+  max-height: 230px;
+  overflow-y: scroll;
 }
-.modal .modal-container .modal-content .description-content::-webkit-scrollbar {
+.description::-webkit-scrollbar {
   width: 5px;
 }
-.modal
-  .modal-container
-  .modal-content
-  .description-content::-webkit-scrollbar-thumb {
+
+.description::-webkit-scrollbar-thumb {
   background: var(--main-color);
   cursor: pointer;
   border-radius: 5px;
 }
 
 .modal .modal-container .modal-content .price {
-  text-align: start;
+  display: flex;
+  justify-content: space-between;
   margin-top: 1rem;
-  padding-left: 2rem;
+  align-items: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .modal-img {
   display: none;
 }
+.modal .button-container {
+  float: right;
+}
 
 @media (min-width: 768px) {
-  .modal .modal-container .modal-content {
+  .modal-container {
+    max-height: 400px;
+  }
+  .modal-content {
     display: flex;
     flex-direction: row;
-    max-height: 400px;
-    align-items: center;
-    padding: 0.5em;
+    height: 100%;
   }
   .modal .modal-container .modal-img {
-    margin-left: 0;
-    margin-right: auto;
     height: 220px;
-
     min-width: 150px;
     display: flex;
-
-    margin: auto;
-  }
-  .modal .modal-container .modal-content .description-content {
-    height: 270px;
-    overflow: hidden;
-  }
-  .modal
-    .modal-container
-    .modal-content
-    .description-content
-    div::-webkit-scrollbar {
-    width: 5px;
-  }
-  .modal
-    .modal-container
-    .modal-content
-    .description-content
-    div::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    cursor: pointer;
-    border-radius: 5px;
+    margin-right: 1rem;
   }
 }
