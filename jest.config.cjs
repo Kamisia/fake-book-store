@@ -5,4 +5,8 @@ module.exports = {
     "^.+\\.(js|jsx)$": "babel-jest",
   },
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.js"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!(@babel/runtime)/)",
+    "\\.pnp\\.[^\\/]+$",
+  ],
 };

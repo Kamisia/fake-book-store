@@ -49,19 +49,35 @@ const ButtonsComponent = ({ book }) => {
     <div className="button-container">
       {isAdded ? (
         <div className="quantity">
-          <Button onClick={handleDecreaseQuantity} className="minus-button">
+          <Button
+            onClick={handleDecreaseQuantity}
+            className="minus-button"
+            data-testid="minus-button"
+          >
             <Icon IconComponent={FaMinus} />
           </Button>
           <p className="number">{quantity}</p>
-          <Button onClick={handleIncreaseQuantity} className="plus-button">
+          <Button
+            onClick={handleIncreaseQuantity}
+            className="plus-button"
+            data-testid="plus-button"
+          >
             <Icon IconComponent={FaPlus} />
           </Button>
-          <Button onClick={handleDelete} className="trash-button">
+          <Button
+            onClick={handleDelete}
+            className="trash-button"
+            data-testid="trash-button"
+          >
             <Icon IconComponent={CiTrash} />
           </Button>
         </div>
       ) : (
-        <Button onClick={handleAddItemToCart} className="add-button">
+        <Button
+          onClick={handleAddItemToCart}
+          className="add-button"
+          data-testid="add-button"
+        >
           <Icon IconComponent={MdOutlineAddShoppingCart} />
         </Button>
       )}
